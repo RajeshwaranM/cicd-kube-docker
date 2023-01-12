@@ -1,11 +1,12 @@
 pipeline {
 
     agent any
-/* 
+ 
 	tools {
-        maven "maven3"
+        maven "MAVEN3"
+        jdk "OracleJDK8"
     }
- */
+
     environment {
         registry= "rmohanmanickam/vprofileapp"
         registryCredential= 'dockerhub'
@@ -30,18 +31,18 @@ pipeline {
                 }
             }
         }
-/* 
+
         stage('UNIT TEST'){
             steps {
                 sh 'mvn test'
             }
-        } */
+        } 
 
-       /*  stage('INTEGRATION TEST'){
+        stage('INTEGRATION TEST'){
             steps {
                 sh 'mvn verify -DskipUnitTests'
             }
-        } */
+        }
 
         stage ('CODE ANALYSIS WITH CHECKSTYLE'){
             steps {
